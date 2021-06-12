@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.12.1">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.Collection">
+            <fields>
+                <relationField type="COMPOSITION" reference="com.company.model.Ouvrage" fetchType="LAZY" name="liste_ouvrage" nullable="true" collection="true">
+                    <description>liste des ouvrages</description>
+                </relationField>
+                <field type="STRING" length="255" name="nom" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="lieu_stockage" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="actions" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Intervention">
+            <fields>
+                <field type="LOCALDATE" length="255" name="date_debut" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="date_fin" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="nom" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="description" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.Collection" fetchType="LAZY" name="collections" nullable="true" collection="true"/>
+                <field type="STRING" length="255" name="responsable" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Ouvrage">
+            <fields>
+                <field type="STRING" length="255" name="nom" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="statut" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Rapport">
+            <fields>
+                <field type="STRING" length="255" name="resume" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="responsable" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="nb_detruit" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="nb_intact" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="nb_restaure" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="type_rapport" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Sinistre">
+            <fields>
+                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="date_debut" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="date_fin" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
